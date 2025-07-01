@@ -68,13 +68,6 @@ function init() {
   // Initial sun + env map
   updateSun();
 
-  // Cube
-  mesh = new THREE.Mesh(
-    new THREE.BoxGeometry(30,30,30),
-    new THREE.MeshStandardMaterial({ roughness: 0 })
-  );
-  scene.add(mesh);
-
   // Controls, stats, GUI, resize…
   controls = new OrbitControls(camera, renderer.domElement); // Attaches mouse (or touch) handlers to your canvas so dragging or scrolling moves the camera around its “target” point.
   controls.maxPolarAngle = Math.PI * 0.495; // Preventing the camera from flipping all the way under or showing the “underside” of your scene.
@@ -131,12 +124,6 @@ function animate() {
 
   // Animate the water
   water.material.uniforms.time.value = t;
-
-  // Cube motion
-  mesh.position.y = Math.sin(t) * 20 + 5;
-  mesh.rotation.x = t * 0.5;
-  mesh.rotation.z = t * 0.51;
-
   controls.update();
   renderer.render(scene,camera);
   stats.update();
