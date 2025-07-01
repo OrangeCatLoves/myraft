@@ -56,10 +56,10 @@ function init() {
   sky.scale.setScalar(10000);
   scene.add(sky);
   const su = sky.material.uniforms;
-  su.turbidity.value = 10; // Controls how “dirty” or hazy the atmosphere is. Higher turbidity → more light scattering by particles → more orange/red at sunrise/sunset.
+  su.turbidity.value = 2; // Controls how “dirty” or hazy the atmosphere is. Higher turbidity → more light scattering by particles → more orange/red at sunrise/sunset.
   su.rayleigh.value = 2; // Higher Rayleigh → stronger scattering of short (blue) wavelengths → deeper blue sky.
-  su.mieCoefficient.value = 0.005; // Mie scattering coefficient, which controls how much light is scattered by larger particles (like dust or water droplets). Higher values → more scattering → more white in the sky.
-  su.mieDirectionalG.value = 0.8; // Controls the anisotropy of Mie scattering. Higher values → more forward scattering → more white in the sky.
+  su.mieCoefficient.value = 0.0005; // Mie scattering coefficient, which controls how much light is scattered by larger particles (like dust or water droplets). Higher values → more scattering → more white in the sky.
+  su.mieDirectionalG.value = 0.95; // Controls the anisotropy of Mie scattering. Higher values → more forward scattering → more white in the sky.
 
   // PMREM for env lighting + background
   pmremGenerator = new THREE.PMREMGenerator(renderer);
@@ -81,12 +81,12 @@ function init() {
 
   const gui = new GUI();
   const skyF = gui.addFolder('Sky');
-  skyF.add(params,'elevation',0,90,0.1).onChange(updateSun);
-  skyF.add(params,'azimuth',  -180,180,0.1).onChange(updateSun);
+  skyF.add(params,'elevation', 0,90, 0.1).onChange(updateSun);
+  skyF.add(params,'azimuth', -180, 180, 0.1).onChange(updateSun);
   skyF.open();
   const waterF = gui.addFolder('Water');
-  waterF.add(water.material.uniforms.distortionScale,'value',0,8,0.1).name('distortionScale');
-  waterF.add(water.material.uniforms.size,'value',0.1,10,0.1).name('size');
+  waterF.add(water.material.uniforms.distortionScale,'value', 0,8, 0.1).name('distortionScale');
+  waterF.add(water.material.uniforms.size,'value', 0.1, 10, 0.1).name('size');
   waterF.open();
 
   window.addEventListener('resize', onWindowResize);
@@ -107,10 +107,12 @@ function updateSun() {
 
   // Build PMREM + apply as environment AND background
   if (renderTarget) renderTarget.dispose();
-  sceneEnv.add(sky);
-  renderTarget = pmremGenerator.fromScene(sceneEnv);
+  const envScene = new THREE.Scene();
+  const skyClone = sky.clone();
+  skyClone.material = sky.material;
+  envScene.add( skyClone );
+  renderTarget = pmremGenerator.fromScene( envScene );
   scene.environment = renderTarget.texture;
-  scene.background = renderTarget.texture;
 }
 
 function onWindowResize() {
