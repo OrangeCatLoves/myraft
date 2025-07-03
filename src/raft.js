@@ -4,6 +4,7 @@ import { GUI }           from 'three/examples/jsm/libs/lil-gui.module.min.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { Water }         from 'three/examples/jsm/objects/Water.js';
 import { Sky }           from 'three/examples/jsm/objects/Sky.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 let camera, scene, renderer, controls, water, sky, sun, mesh, stats;
 let pmremGenerator, sceneEnv, renderTarget;
@@ -27,7 +28,7 @@ function init() {
   // Scene & camera
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(55, innerWidth/innerHeight, 1, 20000);
-  camera.position.set(30,30,100);
+  camera.position.set(280,280,575);
 
   // Sun vector
   sun = new THREE.Vector3();
@@ -55,6 +56,9 @@ function init() {
   sky = new Sky();
   sky.scale.setScalar(10000);
   scene.add(sky);
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 2); // Increase intensity
+  directionalLight.position.set(-2, 5, 50); // Angle it from the side
+  scene.add(directionalLight);
   const su = sky.material.uniforms;
   su.turbidity.value = 2; // Controls how “dirty” or hazy the atmosphere is. Higher turbidity → more light scattering by particles → more orange/red at sunrise/sunset.
   su.rayleigh.value = 2; // Higher Rayleigh → stronger scattering of short (blue) wavelengths → deeper blue sky.
@@ -67,13 +71,43 @@ function init() {
 
   // Initial sun + env map
   updateSun();
+  // Load island model
+  const loader = new GLTFLoader();
+  loader.load(
+    '../public/models/island.glb',
+    (gltf) => {
+      console.log('Island loaded:', gltf.scene);
+      const island = gltf.scene;
+      island.traverse((child) => {
+        if (child.isMesh) {
+          child.material = new THREE.MeshStandardMaterial({
+            color: 0xfce28a,
+            roughness: 1,
+            metalness: 0,
+            flatShading: true,
+          });
+          child.castShadow = true;
+          child.receiveShadow = true;
+          child.material.side = THREE.DoubleSide;
+        }
+      });
+      island.scale.set(10, 10, 10); // Adjust based on Blender scale
+      island.position.set(0, -5, 0); // The y-value determines the height at which the island floats above the water
+      island.rotation.x = Math.PI;
+      scene.add(island);
+    },
+    undefined,
+    (error) => {
+      console.error('Failed to load island model:', error);
+    }
+  );
 
   // Controls, stats, GUI, resize…
   controls = new OrbitControls(camera, renderer.domElement); // Attaches mouse (or touch) handlers to your canvas so dragging or scrolling moves the camera around its “target” point.
   controls.maxPolarAngle = Math.PI * 0.495; // Preventing the camera from flipping all the way under or showing the “underside” of your scene.
   controls.target.set(0,10,0);
   controls.minDistance = 40;
-  controls.maxDistance = 200;
+  controls.maxDistance = 2000;
   controls.update();
 
   stats = new Stats();
