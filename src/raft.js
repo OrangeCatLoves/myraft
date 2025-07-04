@@ -28,7 +28,7 @@ function init() {
   // Scene & camera
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(55, innerWidth/innerHeight, 1, 20000);
-  camera.position.set(280,280,575);
+  camera.position.set(700, 700, 890);
 
   // Sun vector
   sun = new THREE.Vector3();
@@ -39,7 +39,7 @@ function init() {
     tex => { tex.wrapS = tex.wrapT = THREE.RepeatWrapping; } // Tile the texture the map endlessly across the the plane so that it won't stretch.
   );
   water = new Water(
-    new THREE.PlaneGeometry(10000,10000), 
+    new THREE.PlaneGeometry(100000,100000), 
     { // Normal map plus parameters controlling wave distortion, coloration, and how the sun lights the surface.
       waterNormals,
       sunDirection: sun,
@@ -91,7 +91,7 @@ function init() {
           child.material.side = THREE.DoubleSide;
         }
       });
-      island.scale.set(10, 10, 10); // Adjust based on Blender scale
+      island.scale.set(20, 20, 20); // Adjust based on Blender scale
       island.position.set(0, -5, 0); // The y-value determines the height at which the island floats above the water
       island.rotation.x = Math.PI;
       scene.add(island);
@@ -101,7 +101,47 @@ function init() {
       console.error('Failed to load island model:', error);
     }
   );
-
+  loader.load(
+  '../public/models/coconuttree/scene.gltf',  // ← adjust path/name to match your file
+  (gltf) => {
+    const tree = gltf.scene;
+    // Center it on the island:
+    tree.position.set(0, 70, 0);
+    tree.scale.set(60, 60, 60);
+    scene.add(tree);
+    console.log('Palm tree loaded and placed at island centre');
+  },
+  undefined,
+    (err) => console.error('Error loading palm tree:', err)
+  );
+  loader.load(
+    '../public/models/sunchair/scene.gltf',
+    (gltf) => {
+      const chair = gltf.scene;
+      // Position it on the island:
+      chair.position.set(-10, 84, 190);
+      chair.scale.set(60, 60, 60);
+      // Rotate it to face the water:
+      chair.rotation.y = Math.PI / 2; // Adjust rotation as needed
+      scene.add(chair);
+      console.log('Sun chair loaded and placed at island centre');
+    },
+    undefined,
+    (err) => console.error('Error loading sun chair:', err)
+  );
+  loader.load(
+    '../public/models/radio/scene.gltf',
+    (gltf) => {
+      const monolith = gltf.scene;
+      // Position it on the island:
+      monolith.position.set(40, 74, 180);
+      monolith.scale.set(6.5, 6.5, 6.5);
+      scene.add(monolith);
+      console.log("Radio loaded and placed at island");
+    },
+    undefined,
+    (err) => console.error('Error loading monolith:', err)
+  );
   // Controls, stats, GUI, resize…
   controls = new OrbitControls(camera, renderer.domElement); // Attaches mouse (or touch) handlers to your canvas so dragging or scrolling moves the camera around its “target” point.
   controls.maxPolarAngle = Math.PI * 0.495; // Preventing the camera from flipping all the way under or showing the “underside” of your scene.

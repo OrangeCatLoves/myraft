@@ -3,198 +3,198 @@
     {
       "bufferView": 2,
       "componentType": 5126,
-      "count": 592,
+      "count": 2636,
       "max": [
-        10.895383834838867,
-        9.539261817932129,
-        89.41323852539063
+        1.6329569816589355,
+        1.4389879703521729,
+        1.327697992324829
       ],
       "min": [
-        -10.269189834594727,
-        -9.8167085647583,
-        0.525850772857666
+        -1.5050430297851563,
+        -0.31901299953460693,
+        -0.8723139762878418
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 2,
-      "byteOffset": 7104,
+      "byteOffset": 31632,
       "componentType": 5126,
-      "count": 592,
+      "count": 2636,
       "max": [
-        0.9525991678237915,
-        0.9721407294273376,
-        0.99961918592453
+        1.0,
+        0.9989872574806213,
+        1.0
       ],
       "min": [
-        -0.9589180946350098,
-        -0.9604162573814392,
-        -0.26451101899147034
+        -1.0,
+        -0.9999997615814209,
+        -1.0
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 1,
       "componentType": 5126,
-      "count": 592,
+      "count": 2636,
       "max": [
-        1.0,
-        1.0
+        46.76409912109375,
+        43.332000732421875
       ],
       "min": [
-        0.0,
-        0.0
+        -41.1510009765625,
+        -42.47200012207031
       ],
       "type": "VEC2"
     },
     {
       "bufferView": 0,
       "componentType": 5125,
-      "count": 888,
+      "count": 4602,
       "type": "SCALAR"
     },
     {
       "bufferView": 2,
-      "byteOffset": 14208,
+      "byteOffset": 63264,
       "componentType": 5126,
-      "count": 2052,
+      "count": 589,
       "max": [
-        54.44186782836914,
-        60.63845443725586,
-        100.05882263183594
+        1.6329569816589355,
+        1.4389879703521729,
+        0.8876950144767761
       ],
       "min": [
-        -62.231689453125,
-        -53.573848724365234,
-        49.412906646728516
+        -1.5050430297851563,
+        -0.31901198625564575,
+        -0.43231201171875
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 2,
-      "byteOffset": 38832,
+      "byteOffset": 70332,
       "componentType": 5126,
-      "count": 2052,
+      "count": 589,
       "max": [
-        0.9992984533309937,
-        0.9985734820365906,
-        0.9997842907905579
+        1.0,
+        0.9989871978759766,
+        1.0
       ],
       "min": [
-        -0.9999551177024841,
-        -0.996975839138031,
-        -0.9992536306381226
+        -1.0,
+        -0.9999997615814209,
+        -1.0
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 1,
-      "byteOffset": 4736,
+      "byteOffset": 21088,
       "componentType": 5126,
-      "count": 2052,
+      "count": 589,
       "max": [
-        1.0,
-        1.0
+        26.360300064086914,
+        43.332000732421875
       ],
       "min": [
-        0.0,
-        0.0
+        -20.74720001220703,
+        -42.47200012207031
       ],
       "type": "VEC2"
     },
     {
       "bufferView": 0,
-      "byteOffset": 3552,
+      "byteOffset": 18408,
       "componentType": 5125,
-      "count": 8208,
+      "count": 999,
       "type": "SCALAR"
     },
     {
       "bufferView": 2,
-      "byteOffset": 63456,
+      "byteOffset": 77400,
       "componentType": 5126,
-      "count": 288,
+      "count": 1770,
       "max": [
-        12.404471397399902,
-        16.612804412841797,
-        90.78314971923828
+        2.3135600090026855,
+        1.8421169519424438,
+        1.7726750373840332
       ],
       "min": [
-        -13.442912101745605,
-        -9.955123901367188,
-        76.29017639160156
+        -1.58154296875,
+        -1.380614995956421,
+        -1.327301025390625
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 2,
-      "byteOffset": 66912,
+      "byteOffset": 98640,
       "componentType": 5126,
-      "count": 288,
+      "count": 1770,
       "max": [
-        0.9787879586219788,
-        0.9982994198799133,
-        0.9861835837364197
+        0.9989141821861267,
+        0.9988936185836792,
+        1.0
       ],
       "min": [
-        -0.9787878394126892,
-        -0.9982994794845581,
-        -0.9861835837364197
+        -0.9989420175552368,
+        -0.9988932609558105,
+        -1.0
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 1,
-      "byteOffset": 21152,
+      "byteOffset": 25800,
       "componentType": 5126,
-      "count": 288,
+      "count": 1770,
       "max": [
-        1.0,
-        1.0
+        0.7384520173072815,
+        1.240149974822998
       ],
       "min": [
-        0.0,
-        0.0
+        -0.2426539957523346,
+        0.4956980049610138
       ],
       "type": "VEC2"
     },
     {
       "bufferView": 0,
-      "byteOffset": 36384,
+      "byteOffset": 22404,
       "componentType": 5125,
-      "count": 432,
+      "count": 4068,
       "type": "SCALAR"
     }
   ],
   "asset": {
     "extras": {
-      "author": "Anna Vidal (Milaein) (https://sketchfab.com/milaein)",
+      "author": "hotdoghans (https://sketchfab.com/hotdoghans)",
       "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
-      "source": "https://sketchfab.com/3d-models/low-poly-palm-tree-with-coconuts-separately-32a7255a308e46cfbdabeb996405ba47",
-      "title": "Low poly palm tree with coconuts (Separately)"
+      "source": "https://sketchfab.com/3d-models/sunchair-c2c86c8f882d46abb01d06ddf9d1d7a8",
+      "title": "Sunchair"
     },
-    "generator": "Sketchfab-12.63.0",
+    "generator": "Sketchfab-14.1.0",
     "version": "2.0"
   },
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 38112,
+      "byteLength": 38676,
       "name": "floatBufferViews",
       "target": 34963
     },
     {
       "buffer": 0,
-      "byteLength": 23456,
-      "byteOffset": 38112,
+      "byteLength": 39960,
+      "byteOffset": 38676,
       "byteStride": 8,
       "name": "floatBufferViews",
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 70368,
-      "byteOffset": 61568,
+      "byteLength": 119880,
+      "byteOffset": 78636,
       "byteStride": 12,
       "name": "floatBufferViews",
       "target": 34962
@@ -202,59 +202,55 @@
   ],
   "buffers": [
     {
-      "byteLength": 131936,
+      "byteLength": 198516,
       "uri": "scene.bin"
-    }
-  ],
-  "images": [
-    {
-      "uri": "textures/Material_41_baseColor.png"
-    },
-    {
-      "uri": "textures/Material_42_baseColor.png"
-    },
-    {
-      "uri": "textures/Material_45_baseColor.png"
     }
   ],
   "materials": [
     {
       "doubleSided": true,
-      "name": "Material_41",
+      "name": "Union1Mtl.002",
       "pbrMetallicRoughness": {
-        "baseColorTexture": {
-          "index": 0
-        },
-        "metallicFactor": 0.0,
-        "roughnessFactor": 0.8929713596
+        "baseColorFactor": [
+          0.5905709999999996,
+          0.7999999999999999,
+          0.0,
+          1.0
+        ],
+        "metallicFactor": 0.0
       }
     },
     {
       "doubleSided": true,
-      "name": "Material_42",
+      "name": "Material.001",
       "pbrMetallicRoughness": {
-        "baseColorTexture": {
-          "index": 1
-        },
-        "metallicFactor": 0.0,
-        "roughnessFactor": 0.8929713596
+        "baseColorFactor": [
+          0.8,
+          0.8,
+          0.8,
+          1.0
+        ],
+        "metallicFactor": 0.0
       }
     },
     {
       "doubleSided": true,
-      "name": "Material_45",
+      "name": "Part1Mtl.002",
       "pbrMetallicRoughness": {
-        "baseColorTexture": {
-          "index": 2
-        },
+        "baseColorFactor": [
+          0.393114,
+          0.191465,
+          0.03493730000000001,
+          1.0
+        ],
         "metallicFactor": 0.0,
-        "roughnessFactor": 0.8929713596
+        "roughnessFactor": 0.17835365853658536
       }
     }
   ],
   "meshes": [
     {
-      "name": "Tronco_Material #41_0",
+      "name": "s_s.001_Union1Mtl.002_0",
       "primitives": [
         {
           "attributes": {
@@ -269,7 +265,7 @@
       ]
     },
     {
-      "name": "Tronco_Material #42_0",
+      "name": "s_s.001_Material.001_0",
       "primitives": [
         {
           "attributes": {
@@ -284,7 +280,7 @@
       ]
     },
     {
-      "name": "Tronco_Material #45_0",
+      "name": "s_s.002_Part1Mtl.002_0",
       "primitives": [
         {
           "attributes": {
@@ -305,17 +301,17 @@
         1
       ],
       "matrix": [
-        0.015054920688271523,
+        0.3060571551322937,
         0.0,
         0.0,
         0.0,
         0.0,
-        3.3428639164049306e-18,
-        -0.015054920688271523,
+        6.795834009582917e-17,
+        -0.3060571551322937,
         0.0,
         0.0,
-        0.015054920688271523,
-        3.3428639164049306e-18,
+        0.3060571551322937,
+        6.795834009582917e-17,
         0.0,
         0.0,
         0.0,
@@ -329,16 +325,16 @@
         2
       ],
       "matrix": [
-        1.0,
+        0.009999999776482582,
         0.0,
         0.0,
         0.0,
         0.0,
         0.0,
-        1.0,
+        0.009999999776482582,
         0.0,
         0.0,
-        -1.0,
+        -0.009999999776482582,
         0.0,
         0.0,
         0.0,
@@ -346,59 +342,75 @@
         0.0,
         1.0
       ],
-      "name": "e9c0e2a0635346a9a016c6125b8d1f16.fbx"
+      "name": "85e4b9c109c9459480e0a6efe4be591b.fbx"
     },
     {
       "children": [
-        3
+        3,
+        6
       ],
       "name": "RootNode"
     },
     {
       "children": [
         4,
-        5,
-        6
+        5
       ],
       "matrix": [
-        1.749260219148838,
-        0.0,
-        1.841653738333224,
-        0.0,
-        1.841653738333224,
-        0.0,
-        -1.7492602191488378,
+        100.0,
         0.0,
         0.0,
-        2.5399999618530273,
         0.0,
         0.0,
-        -3.9444680213928223,
-        -110.78730773925781,
-        2.985095977783203,
+        99.99999999999866,
+        1.6292067073209114e-05,
+        0.0,
+        0.0,
+        -1.6292067073209114e-05,
+        99.99999999999866,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
         1.0
       ],
-      "name": "Tronco"
+      "name": "s_s.001"
     },
     {
       "mesh": 0,
-      "name": "Tronco_Material #41_0"
+      "name": "s_s.001_Union1Mtl.002_0"
     },
     {
       "mesh": 1,
-      "name": "Tronco_Material #42_0"
+      "name": "s_s.001_Material.001_0"
+    },
+    {
+      "children": [
+        7
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        99.99999999999866,
+        1.6292067073209114e-05,
+        0.0,
+        0.0,
+        -1.6292067073209114e-05,
+        99.99999999999866,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "s_s.002"
     },
     {
       "mesh": 2,
-      "name": "Tronco_Material #45_0"
-    }
-  ],
-  "samplers": [
-    {
-      "magFilter": 9729,
-      "minFilter": 9987,
-      "wrapS": 10497,
-      "wrapT": 10497
+      "name": "s_s.002_Part1Mtl.002_0"
     }
   ],
   "scene": 0,
@@ -408,20 +420,6 @@
       "nodes": [
         0
       ]
-    }
-  ],
-  "textures": [
-    {
-      "sampler": 0,
-      "source": 0
-    },
-    {
-      "sampler": 0,
-      "source": 1
-    },
-    {
-      "sampler": 0,
-      "source": 2
     }
   ]
 }
