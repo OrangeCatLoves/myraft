@@ -61,9 +61,9 @@ function init() {
   scene.add(directionalLight);
   const su = sky.material.uniforms;
   su.turbidity.value = 2; // Controls how “dirty” or hazy the atmosphere is. Higher turbidity → more light scattering by particles → more orange/red at sunrise/sunset.
-  su.rayleigh.value = 2; // Higher Rayleigh → stronger scattering of short (blue) wavelengths → deeper blue sky.
+  su.rayleigh.value = 10; // Higher Rayleigh → stronger scattering of short (blue) wavelengths → deeper blue sky.
   su.mieCoefficient.value = 0.0005; // Mie scattering coefficient, which controls how much light is scattered by larger particles (like dust or water droplets). Higher values → more scattering → more white in the sky.
-  su.mieDirectionalG.value = 0.95; // Controls the anisotropy of Mie scattering. Higher values → more forward scattering → more white in the sky.
+  su.mieDirectionalG.value = 0.1; // Controls the anisotropy of Mie scattering. Higher values → more forward scattering → more white in the sky.
 
   // PMREM for env lighting + background
   pmremGenerator = new THREE.PMREMGenerator(renderer);
@@ -72,76 +72,76 @@ function init() {
   // Initial sun + env map
   updateSun();
   // Load island model
-  const loader = new GLTFLoader();
-  loader.load(
-    '../public/models/island.glb',
-    (gltf) => {
-      console.log('Island loaded:', gltf.scene);
-      const island = gltf.scene;
-      island.traverse((child) => {
-        if (child.isMesh) {
-          child.material = new THREE.MeshStandardMaterial({
-            color: 0xfce28a,
-            roughness: 1,
-            metalness: 0,
-            flatShading: true,
-          });
-          child.castShadow = true;
-          child.receiveShadow = true;
-          child.material.side = THREE.DoubleSide;
-        }
-      });
-      island.scale.set(20, 20, 20); // Adjust based on Blender scale
-      island.position.set(0, -5, 0); // The y-value determines the height at which the island floats above the water
-      island.rotation.x = Math.PI;
-      scene.add(island);
-    },
-    undefined,
-    (error) => {
-      console.error('Failed to load island model:', error);
-    }
-  );
-  loader.load(
-  '../public/models/coconuttree/scene.gltf',  // ← adjust path/name to match your file
-  (gltf) => {
-    const tree = gltf.scene;
-    // Center it on the island:
-    tree.position.set(0, 70, 0);
-    tree.scale.set(60, 60, 60);
-    scene.add(tree);
-    console.log('Palm tree loaded and placed at island centre');
-  },
-  undefined,
-    (err) => console.error('Error loading palm tree:', err)
-  );
-  loader.load(
-    '../public/models/sunchair/scene.gltf',
-    (gltf) => {
-      const chair = gltf.scene;
-      // Position it on the island:
-      chair.position.set(-10, 84, 190);
-      chair.scale.set(60, 60, 60);
-      // Rotate it to face the water:
-      chair.rotation.y = Math.PI / 2; // Adjust rotation as needed
-      scene.add(chair);
-      console.log('Sun chair loaded and placed at island centre');
-    },
-    undefined,
-    (err) => console.error('Error loading sun chair:', err)
-  );
-  loader.load(
-    '../public/models/radio/scene.gltf',
-    (gltf) => {
-      const monolith = gltf.scene;
-      // Position it on the island:
-      monolith.position.set(40, 74, 180);
-      monolith.scale.set(6.5, 6.5, 6.5);
-      scene.add(monolith);
-      console.log("Radio loaded and placed at island");
-    },
-    undefined,
-    (err) => console.error('Error loading monolith:', err)
-  );
+  // const loader = new GLTFLoader();
+  // loader.load(
+  //   '../public/models/island2.glb',
+  //   (gltf) => {
+  //     console.log('Island loaded:', gltf.scene);
+  //     const island = gltf.scene;
+  //     island.traverse((child) => {
+  //       if (child.isMesh) {
+  //         child.material = new THREE.MeshStandardMaterial({
+  //           color: 0xfce28a,
+  //           roughness: 0.5,
+  //           metalness: 0,
+  //           flatShading: true,
+  //         });
+  //         child.castShadow = true;
+  //         child.receiveShadow = true;
+  //         child.material.side = THREE.DoubleSide;
+  //       }
+  //     });
+  //     island.scale.set(20, 20, 20); // Adjust based on Blender scale
+  //     island.position.set(0, -5, 0); // The y-value determines the height at which the island floats above the water
+  //     island.rotation.x = Math.PI;
+  //     scene.add(island);
+  //   },
+  //   undefined,
+  //   (error) => {
+  //     console.error('Failed to load island model:', error);
+  //   }
+  // );
+  // loader.load(
+  // '../public/models/coconuttree/scene.gltf',  // ← adjust path/name to match your file
+  // (gltf) => {
+  //   const tree = gltf.scene;
+  //   // Center it on the island:
+  //   tree.position.set(0, 70, 0);
+  //   tree.scale.set(60, 60, 60);
+  //   scene.add(tree);
+  //   console.log('Palm tree loaded and placed at island centre');
+  // },
+  // undefined,
+  //   (err) => console.error('Error loading palm tree:', err)
+  // );
+  // loader.load(
+  //   '../public/models/sunchair/scene.gltf',
+  //   (gltf) => {
+  //     const chair = gltf.scene;
+  //     // Position it on the island:
+  //     chair.position.set(-10, 84, 190);
+  //     chair.scale.set(60, 60, 60);
+  //     // Rotate it to face the water:
+  //     chair.rotation.y = Math.PI / 2; // Adjust rotation as needed
+  //     scene.add(chair);
+  //     console.log('Sun chair loaded and placed at island centre');
+  //   },
+  //   undefined,
+  //   (err) => console.error('Error loading sun chair:', err)
+  // );
+  // loader.load(
+  //   '../public/models/radio/scene.gltf',
+  //   (gltf) => {
+  //     const monolith = gltf.scene;
+  //     // Position it on the island:
+  //     monolith.position.set(40, 74, 180);
+  //     monolith.scale.set(6.5, 6.5, 6.5);
+  //     scene.add(monolith);
+  //     console.log("Radio loaded and placed at island");
+  //   },
+  //   undefined,
+  //   (err) => console.error('Error loading monolith:', err)
+  // );
   // Controls, stats, GUI, resize…
   controls = new OrbitControls(camera, renderer.domElement); // Attaches mouse (or touch) handlers to your canvas so dragging or scrolling moves the camera around its “target” point.
   controls.maxPolarAngle = Math.PI * 0.495; // Preventing the camera from flipping all the way under or showing the “underside” of your scene.
